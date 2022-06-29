@@ -1,0 +1,37 @@
+.footer {
+    width:map-get($size, cover-width);
+    height: 10%;
+    background-color: $background-colour-dark;
+    &__logo {
+        width: 25%;
+        height: 25%;
+        margin: 30px 20px 10px 30px;
+        @include invert-color;
+    }
+    &__nav {
+        &__link{
+            color: $text-colour-white;
+            @include flex-row-start;
+            margin: 0px 20px 0px 30px;
+            @include mobile-only {
+                height: 25px;
+            }
+            &__icon {
+                margin:  10px 10px 10px 0px;
+            }
+            &__paragraph {
+                margin:  10px 10px 10px 0px;
+                font-size: map-get($police, police-size-small);
+                font-weight: map-get($weight, font-weight-light);
+                @include mobile-only {
+                    font-size: map-get($police, police-size-hypra-small);
+                font-weight: map-get($weight, font-weight-negative);
+                }
+            }
+            
+        }
+        .link-last {
+            margin-bottom: 40px;
+        }
+    }
+}

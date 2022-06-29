@@ -1,0 +1,22 @@
+
+.presentation {
+    width:map-get($size, cover-width);
+    height: 20%;
+    background-color: $background-colour-lighter;
+    @include flex-column-center;
+}
+
+
+.fonctionnement {
+    width:map-get($size, cover-width);
+    height: 20%;
+}
+
+.list-restaurant {
+    width:map-get($size, cover-width);
+    height: 40%;
+    @include flex-column;
+    align-items: center;
+    background-color: $background-colour-lighter;
+}
+

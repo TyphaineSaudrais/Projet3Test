@@ -1,0 +1,311 @@
+
+
+/* ========================  media queries ===========================*/
+
+@mixin small-mobile {
+    @media screen and (max-width: map-get($breakpoints, small-mobile)) { 
+        @content
+    }
+}
+
+@mixin mobile-only {
+    @media screen and (max-width: map-get($breakpoints, mobile)) { 
+        @content
+    }
+}
+
+@mixin mid-screen {
+     @media screen and (max-width: map-get($breakpoints, mid-screen)) { 
+        @content
+    }
+}
+
+@mixin heading-shadow {
+    box-shadow: 0px 5px 5px $background-colour-greyLight;
+}
+
+@mixin shadow {
+    box-shadow: 0px 3px 3px $background-colour-greyLight;
+}
+@mixin shadow-amplify {
+    box-shadow: 0px 4px 4px $background-colour-grey;
+}
+@mixin invert-color {
+    filter: invert(100%);
+}
+
+@mixin flex-row-start {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    
+}
+@mixin flex-row-around {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    
+}
+@mixin flex-row-center {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    
+}
+@mixin flex-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    
+}
+
+@mixin flex-column-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}@mixin flex-column-middle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+/*  ==================== radius  =============================*/
+@mixin border-radius {
+    border-radius: 20px/20px;
+    
+}
+
+@mixin half-radius-up {
+    border-radius: 20px 20px 0px 0px;
+    
+}
+
+@mixin half-radius-down {
+    border-radius: 0px 0px 20px 20px;
+    
+}
+
+/* ==========================================================*/
+
+@mixin position-absolute {
+    position: absolute;
+            top: 20px;
+            right: 20px;
+}
+
+@mixin position-absolute-inherit {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;  
+    left: 0;
+}
+@mixin border-green {
+    content: "";
+            width: 50px;
+            position: absolute;
+            bottom: -10px;
+            left: 0px;
+            border: 2px solid $tertiary-colour;
+         
+}
+
+/*  ======================= BTN =============================*/
+@mixin btn-violet {
+    background: $background-linear;
+    width: 230px;
+    height: 50px;
+    border-radius: 30px /30px ;
+    text-align: center;
+    @include shadow; 
+    color: $text-colour-white;
+    line-height: 28px;
+    display: block;
+    padding: map-get($padding, padding-s);
+    margin-bottom: 40px;
+    margin-top: 20px;
+    
+}
+
+@mixin btn-grey {
+    background-color: $background-colour-lighter;
+    border-radius: 20px /20px ;
+    text-align: center;
+    @include shadow; 
+    color: $text-colour-black;
+    line-height: 80px;
+}
+@mixin btn-grey-change {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;  
+    left: 0;
+    opacity: 0;
+    z-index: -1;
+    @include shadow-amplify(); 
+    border-radius: 20px /20px ;
+    background-color: lighten($color: $primary-colour, $amount: 35%);
+    transition: opacity 700ms;
+}
+
+
+@mixin btn-green {
+    background-color: $tertiary-colour;
+    color: darken($color:$tertiary-colour, $amount: 40%);
+    text-align: center;
+    line-height: 26px;
+    font-weight: map-get($weight, font-weight-light);
+}
+
+
+@mixin btn-white {
+    background-color: darken($color:$background-colour-white, $amount: 3%);
+    border-radius: 20px /20px ;
+    @include shadow; 
+    color: $text-colour-black;
+    line-height: 30px;
+    margin-left: 10px;
+}
+
+@mixin circle-purple {
+    border-radius: 50%;
+    width: 21px;
+    height: 21px;
+    background-color: $primary-colour;
+    color: $text-colour-white;
+    line-height: 20px;
+}
+
+@mixin btn-green-light {
+    position: absolute;
+    top: 0;
+    right: 0; 
+    bottom: 0; 
+    width: 19%;
+    height: 100%;
+    border-radius: 0px 20px 20px 0px;
+    background-color: $tertiary-colour;
+    transform-origin: right;
+    transform: scale(0%, 100%);
+    transition: transform 500ms;
+}
+ @mixin btn-green-light-i {
+    display: inline block;
+    margin: auto;
+    @include invert-color;
+    border-radius: 50%; 
+    transform: rotate(0turn);
+    transition : transform 500ms ease-in-out; 
+   
+ }
+
+
+/*  =======================================================*/
+
+@mixin Title-menu-styling {
+    width: 100%;
+    position: relative;
+    text-transform: uppercase; 
+    font-size: map-get($police, police-size-hypra-small);
+    font-weight: map-get($weight , font-weight-negative) ;
+    margin-left: 10px;
+    margin-top: 15px;
+}
+
+@mixin elipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* ============================= Keyframes ================================== */
+
+$animation-delay: 200ms;
+$number-bulles: 6; 
+$number-choix: 5; 
+
+/* ====== spinner ====== */
+
+@keyframes bulles {
+    50% {
+        width: 0;
+        height: 0;
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+@keyframes apparition {
+    0% {
+        opacity: 0.7;
+        z-index:1;
+    }
+    10% {
+        opacity: 1;
+        z-index:1;
+    }
+    70% {
+        opacity: 1;
+        z-index:1;
+    }
+    80% {
+        opacity: 0.5;
+        z-index:1;
+    }
+    90% {
+        opacity: 0.1;
+        z-index:1;
+    }
+    100%{
+        opacity: 0;
+        z-index:1;
+    }
+}
+
+/* ====== displaying page ====== */
+
+@keyframes menu-display {
+
+    10%{
+        opacity: 0;
+    }
+    20%{
+        opacity: 0.2;
+    }
+    30%{
+        opacity: 0.3;
+    }
+    40%{
+        opacity: 0.4;
+    }
+    70%{
+        opacity: 0.5;
+    }
+    80%{
+        opacity: 0.8;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes choix-display {
+    0%{
+       transform: translateY(100%);
+    }
+    100%{
+        transform: translateY(0%);
+    }
+   
+}
+
+/* ========================================================================= */

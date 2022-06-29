@@ -1,0 +1,29 @@
+.body-page {
+    background-color: $background-colour-lightergrey;
+}
+
+.headerpage {
+    width: map-get($size, cover-width);
+    height: map-get($size, cover-height);
+    background-color: $background-colour-lighter; 
+    position: relative;
+    &__logo {
+        display: block;
+        margin: 20px auto ;
+        height: 100%;
+        width: 40%;
+    }
+    &__iconlink {
+        position: absolute;
+        top: 21%;
+        left: 10px;
+        font-weight: map-get($weight , font-weight-super-strong) ;
+        font-size: map-get($police, police-size-medium);
+        @include mobile-only {
+            font-weight: map-get($weight , font-weight-super-medium) ;
+            font-size: map-get($police, police-size-small);
+            top: 12%;
+        }
+    }
+    
+}

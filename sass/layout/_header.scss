@@ -1,0 +1,14 @@
+.header {
+    width: map-get($size, cover-width);
+    height: 10%;
+    background-color: $background-colour-white; 
+    @include heading-shadow;
+    position: relative;
+    &__logo {
+        display: block;
+        margin: 20px auto ;
+        height: 100%;
+        width: 40%; 
+    }
+}
+

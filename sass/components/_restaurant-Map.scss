@@ -1,0 +1,109 @@
+.list-restaurant {
+    &__title {
+        width: 90%; 
+        height: 20%;
+        margin: auto;
+        margin-top: 30px;
+        margin-bottom: 20px;
+        text-align: center;
+        padding: map-get($padding, padding-s);
+        font-size: map-get($police, police-size-medium);
+        font-weight: map-get($weight , font-weight-medium);
+        @include mobile-only {
+            font-size: map-get($police ,police-size-small);
+            margin: 30px 20px 15px 10px;
+            text-align: start;
+        }
+        }
+}
+
+
+.restaurant {
+    width: 90%;
+    height: 40%;
+    margin: auto; 
+    margin-bottom: 20px;
+    @include border-radius;
+    @include shadow;
+    position: relative;
+    &__img {
+        width: map-get($size, cover-width);
+        max-height: 200px;
+        @include half-radius-up;
+        object-fit: cover;
+        @include mobile-only {
+            max-height: 150px;
+            object-position: 50%  62%;
+        }
+    }
+    &__btn {
+        width: 10%;
+        height: 10%;
+        position: absolute;
+        top: 5%;
+        right: 3%;
+        @include btn-green;
+        @include mobile-only {
+            width: 21%;
+            height: 12%;
+            font-size: map-get($police, police-size-hypra-small);
+        }
+    }
+    &__description {
+        width: 100%;
+        height: 70px;
+        background-color: $background-colour-white ;
+        color: $text-colour-black;
+        position: relative;
+        @include  flex-column;
+        @include half-radius-down;
+        &__title {
+            font-size: map-get($police, police-size-small);
+            font-weight: map-get($weight ,font-weight-medium);
+            height: 50%;
+            margin: 5px 20px 0px 20px;
+            @include mobile-only {
+                font-size: map-get($police, police-size-very-small);
+                line-height: 35px;            
+            }
+        }
+        &__paragraph {
+            font-size: map-get($police, police-size-small);
+            font-weight: map-get($weight ,font-weight-negative);
+            height: 50%;
+            margin: 0px 20px 0px 20px;
+            @include mobile-only {
+                font-size: map-get($police, police-size-hypra-small);
+                line-height: 10px;  
+            }
+        }
+        &__icon {
+            color: $text-colour-grey;
+            @include position-absolute; 
+            font-size: 150%;
+            &:hover + .restaurant__description__icon__iconRempli {
+                transform: scale(1);
+                transform-origin: 0% 0%;
+            }
+            &__iconRempli {
+                @include position-absolute; 
+                font-size: 150%;
+                transform: scale(0);
+                background: linear-gradient(to bottom right, $secondary-colour, $primary-colour);
+                transition: transform 1000ms;
+                -webkit-text-fill-color: transparent;
+                -webkit-background-clip: text;
+                
+            } 
+        }
+       
+       
+        
+    }
+}
+.last-restaurant {
+    @include mobile-only {
+        margin-bottom: 50px;
+    }
+    
+}

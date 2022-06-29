@@ -1,0 +1,32 @@
+$primary-colour: #9356DC;
+$secondary-colour: #FF79DA;
+$tertiary-colour: #99E2D0;
+$waiting-colour: #15DEA5;
+$waiting-colour-navy:#0E397F;
+$waiting-colour-navy-light:#45b0c3;
+$background-colour: rgb(123, 119, 119);
+$background-colour-light: rgb(230, 227, 227);
+$background-colour-lighter: rgb(244, 244, 244);
+$background-colour-lightergrey: darken($color:rgb(244, 244, 244), $amount:3%);
+$background-colour-dark: rgb(54, 52, 52); 
+$background-colour-grey: grey;
+$background-colour-greyLight: rgb(194, 191, 191);
+$background-colour-greyLight-transp: rgba(194, 191, 191,0.8);
+$background-colour-white: #ffff;
+$background-colour-black: black;
+$background-linear:linear-gradient(to bottom right, $secondary-colour, $primary-colour);
+$text-colour-grey: grey;
+$text-colour-greyDark: rgb(72, 70, 70);
+$text-colour-black: black; 
+$text-colour-white: #ffff;
+
+
+
+$police: (police-size-mega-small: 11px, police-size-hypra-small: 14px, police-size-very-small: 16px, police-size-small: 20px, police-size-medium: 26px, police-size-big: 35px);
+$weight: (font-weight-negative: 300, font-weight-light: 500, font-weight-medium: 600,font-weight-strong: 700, font-weight-super-strong: 900);
+$size: (cover-width: 100%, cover-height: 100%);
+$padding: (padding-xs: 5px, padding-s: 10px, padding-m: 15px,padding-l: 20px, padding-xl: 25px);
+
+$breakpoints: (small-mobile: 375px, mobile: 600px, mid-screen: 1000px);
+
+
