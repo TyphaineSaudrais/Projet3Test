@@ -4,8 +4,8 @@
   "description": "\"\"",
   "main": "index.js",
   "scripts": {
-    "sass": "sass --watch /sass/main.scss:style.css",
-    "prefix": "postcss style.css --use autoprefixer -d css/prefixed/"
+    "sass": "sass --watch ./sass/main.scss:./css/style.css",
+    "prefix": "postcss css/style.css --use autoprefixer -d css/prefixed/"
   },
   "repository": {
     "type": "git",
@@ -16,9 +16,14 @@
   ],
   "author": "\"\"",
   "license": "ISC",
-  "browserslist" : "last 4 versions",
+  "browserslist": "last 4 versions",
   "bugs": {
     "url": "https://github.com/TyphaineSaudrais/Project3/issues"
   },
-  "homepage": "https://github.com/TyphaineSaudrais/Project3#readme"
+  "homepage": "https://github.com/TyphaineSaudrais/Project3#readme",
+  "dependencies": {
+    "postcss": "^8.4.14",
+    "prefix": "^1.0.0",
+    "sass": "^1.53.0"
+  }
 }

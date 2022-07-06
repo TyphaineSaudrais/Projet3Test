@@ -1,0 +1,1584 @@
+@charset "UTF-8";
+/* ========================  media queries ===========================*/
+/*  ==================== radius  =============================*/
+/* ==========================================================*/
+/*  ======================= BTN =============================*/
+/*  =======================================================*/
+/* ============================= Keyframes ================================== */
+/* ====== spinner ====== */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Shrikhand&display=swap");
+@keyframes bulles {
+  50% {
+    width: 0;
+    height: 0;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes apparition {
+  0% {
+    opacity: 0.7;
+    z-index: 1;
+  }
+  10% {
+    opacity: 1;
+    z-index: 1;
+  }
+  70% {
+    opacity: 1;
+    z-index: 1;
+  }
+  80% {
+    opacity: 0.5;
+    z-index: 1;
+  }
+  90% {
+    opacity: 0.1;
+    z-index: 1;
+  }
+  100% {
+    opacity: 0;
+    z-index: 1;
+  }
+}
+/* ====== displaying page ====== */
+@keyframes menu-display {
+  10% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.2;
+  }
+  30% {
+    opacity: 0.3;
+  }
+  40% {
+    opacity: 0.4;
+  }
+  70% {
+    opacity: 0.5;
+  }
+  80% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes choix-display {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+/* ========================================================================= */
+/* ==============================Global grid: Boxe Sizing & Normalize ================================ */
+/* --------BOXE SIZING ------ */
+*, *:before, *::after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  background-clip: border-box;
+}
+
+* {
+  max-width: 1440px;
+  box-sizing: border-box; /*Opera/IE 8+ */
+  -moz-box-sizing: border-box; /* Firefox, autres Gecko */
+  -webkit-box-sizing: border-box; /* Safari/Chrome, autres WebKit */
+  /* box-sizing est appliqué à tous les éléments */
+  scroll-behavior: smooth;
+}
+
+/* --------NORMALIZE ------ */
+/* Document
+* ========================================================================== */
+/**
+* 1. Correct the line height in all browsers.
+* 2. Prevent adjustments of font size after orientation changes in
+*    IE on Windows Phone and in iOS.
+*/
+html {
+  line-height: 1.15; /* 1 */
+  -ms-text-size-adjust: 100%; /* 2 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+}
+
+/* Sections
+* ========================================================================== */
+/**
+* Correct the font size and margin on `h1` elements within `section` and
+* `article` contexts in Chrome, Edge, Firefox, and Safari.
+*/
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+/* Grouping content
+* ========================================================================== */
+/**
+* Remove the margin on nested lists in Chrome, Edge, IE, and Safari.
+*/
+dl dl,
+dl ol,
+dl ul,
+ol dl,
+ul dl {
+  margin: 0;
+}
+
+/**
+* Remove the margin on nested lists in Edge 18- and IE.
+*/
+ol ol,
+ol ul,
+ul ol,
+ul ul {
+  margin: 0;
+}
+
+/**
+* 1. Add the correct box sizing in Firefox.
+* 2. Correct the inheritance of border color in Firefox.
+* 3. Show the overflow in Edge 18- and IE.
+*/
+hr {
+  box-sizing: content-box; /* 1 */
+  color: inherit; /* 2 */
+  height: 0; /* 1 */
+  overflow: visible; /* 3 */
+}
+
+/**
+* Add the correct display in IE.
+*/
+main {
+  display: block;
+}
+
+/**
+* 1. Correct the inheritance and scaling of font size in all browsers.
+* 2. Correct the odd `em` font sizing in all browsers.
+*/
+pre {
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+
+/* Text-level semantics
+* ========================================================================== */
+/**
+* Remove the gray background on active links in IE 10.
+*/
+a {
+  background-color: transparent;
+}
+
+/**
+* Add the correct text decoration in Edge 18-, IE, and Safari.
+*/
+abbr[title] {
+  text-decoration: underline;
+  text-decoration: underline dotted;
+}
+
+/**
+* Add the correct font weight in Chrome, Edge, and Safari.
+*/
+b,
+strong {
+  font-weight: bolder;
+}
+
+/**
+* 1. Correct the inheritance and scaling of font size in all browsers.
+* 2. Correct the odd `em` font sizing in all browsers.
+*/
+code,
+kbd,
+samp {
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+
+/**
+* Add the correct font size in all browsers.
+*/
+small {
+  font-size: 80%;
+}
+
+/* Embedded content
+* ========================================================================== */
+/**
+* Add the correct display in IE 9-.
+*/
+audio,
+video {
+  display: inline-block;
+}
+
+/**
+* Add the correct display in iOS 4-7.
+*/
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/**
+* Remove the border on images within links in IE 10-.
+*/
+img {
+  border-style: none;
+}
+
+/**
+* Hide the overflow in IE.
+*/
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* Tabular data
+* ========================================================================== */
+/**
+* 1. Correct table border color inheritance in all Chrome, Edge, and Safari.
+* 2. Remove text indentation from table contents in Chrome, Edge, and Safari.
+*/
+table {
+  border-color: inherit; /* 1 */
+  text-indent: 0; /* 2 */
+}
+
+/* Forms
+* ========================================================================== */
+/**
+* Remove the margin on controls in Safari.
+*/
+button,
+input,
+select {
+  margin: 0;
+}
+
+/**
+* 1. Show the overflow in IE.
+* 2. Remove the inheritance of text transform in Edge 18-, Firefox, and IE.
+*/
+button {
+  overflow: visible; /* 1 */
+  text-transform: none; /* 2 */
+}
+
+/**
+* Correct the inability to style buttons in iOS and Safari.
+*/
+button,
+[type=button],
+[type=reset],
+[type=submit] {
+  -webkit-appearance: button;
+}
+
+/**
+* Correct the padding in Firefox.
+*/
+fieldset {
+  padding: 0.35em 0.75em 0.625em;
+}
+
+/**
+* Show the overflow in Edge 18- and IE.
+*/
+input {
+  overflow: visible;
+}
+
+/**
+* 1. Correct the text wrapping in Edge 18- and IE.
+* 2. Correct the color inheritance from `fieldset` elements in IE.
+*/
+legend {
+  box-sizing: border-box; /* 1 */
+  color: inherit; /* 2 */
+  display: table; /* 1 */
+  max-width: 100%; /* 1 */
+  white-space: normal; /* 1 */
+}
+
+/**
+* 1. Add the correct display in Edge 18- and IE.
+* 2. Add the correct vertical alignment in Chrome, Edge, and Firefox.
+*/
+progress {
+  display: inline-block; /* 1 */
+  vertical-align: baseline; /* 2 */
+}
+
+/**
+* Remove the inheritance of text transform in Firefox.
+*/
+select {
+  text-transform: none;
+}
+
+/**
+* 1. Remove the margin in Firefox and Safari.
+* 2. Remove the default vertical scrollbar in IE.
+*/
+textarea {
+  margin: 0; /* 1 */
+  overflow: auto; /* 2 */
+}
+
+/**
+* 1. Add the correct box sizing in IE 10-.
+* 2. Remove the padding in IE 10-.
+*/
+[type=checkbox],
+[type=radio] {
+  box-sizing: border-box; /* 1 */
+  padding: 0; /* 2 */
+}
+
+/**
+* 1. Correct the odd appearance in Chrome, Edge, and Safari.
+* 2. Correct the outline style in Safari.
+*/
+[type=search] {
+  -webkit-appearance: textfield; /* 1 */
+  outline-offset: -2px; /* 2 */
+}
+
+/**
+* Correct the cursor style of increment and decrement buttons in Safari.
+*/
+::-webkit-inner-spin-button,
+::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+* Correct the text style of placeholders in Chrome, Edge, and Safari.
+*/
+::-webkit-input-placeholder {
+  color: inherit;
+  opacity: 0.54;
+}
+
+/**
+* Remove the inner padding in Chrome, Edge, and Safari on macOS.
+*/
+::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+* 1. Correct the inability to style upload buttons in iOS and Safari.
+* 2. Change font properties to `inherit` in Safari.
+*/
+::-webkit-file-upload-button {
+  -webkit-appearance: button; /* 1 */
+  font: inherit; /* 2 */
+}
+
+/**
+* Remove the inner border and padding of focus outlines in Firefox.
+*/
+::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+/**
+* Restore the focus outline styles unset by the previous rule in Firefox.
+*/
+:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+/**
+* Remove the additional :invalid styles in Firefox.
+*/
+:-moz-ui-invalid {
+  box-shadow: none;
+}
+
+/* Interactive
+* ========================================================================== */
+/*
+* Add the correct display in Edge 18- and IE.
+*/
+details {
+  display: block;
+}
+
+/*
+* Add the correct styles in Edge 18-, IE, and Safari.
+*/
+dialog {
+  background-color: white;
+  border: solid;
+  color: black;
+  display: block;
+  height: -moz-fit-content;
+  height: -webkit-fit-content;
+  height: fit-content;
+  left: 0;
+  margin: auto;
+  padding: 1em;
+  position: absolute;
+  right: 0;
+  width: -moz-fit-content;
+  width: -webkit-fit-content;
+  width: fit-content;
+}
+
+dialog:not([open]) {
+  display: none;
+}
+
+/*
+* Add the correct display in all browsers.
+*/
+summary {
+  display: list-item;
+}
+
+/* Scripting
+* ========================================================================== */
+/**
+* Add the correct display in IE 9-.
+*/
+canvas {
+  display: inline-block;
+}
+
+/**
+* Add the correct display in IE.
+*/
+template {
+  display: none;
+}
+
+/* User interaction
+* ========================================================================== */
+/**
+* Add the correct display in IE 10-.
+*/
+[hidden] {
+  display: none;
+}
+
+/* =================================== Font weight and general settings ============================================ */
+* {
+  font-family: "Roboto", serif, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.menu__title {
+  font-family: "Shrikhand", "Roboto", serif, sans-serif;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+body {
+  color: black;
+  margin: 0;
+  padding: 0;
+}
+
+*, *:before, *::after {
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  width: 100%;
+  height: 10%;
+  background-color: white;
+  box-shadow: 0px 5px 5px rgb(194, 191, 191);
+  position: relative;
+}
+.header__logo {
+  display: block;
+  margin: 20px auto;
+  height: 100%;
+  width: 40%;
+}
+
+.footer {
+  width: 100%;
+  height: 10%;
+  background-color: rgb(54, 52, 52);
+}
+.footer__logo {
+  width: 25%;
+  height: 25%;
+  margin: 30px 20px 10px 30px;
+  filter: invert(100%);
+}
+.footer__nav__link {
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 0px 20px 0px 30px;
+}
+@media screen and (max-width: 600px) {
+  .footer__nav__link {
+    height: 25px;
+  }
+}
+.footer__nav__link__icon {
+  margin: 10px 10px 10px 0px;
+}
+.footer__nav__link__paragraph {
+  margin: 10px 10px 10px 0px;
+  font-size: 20px;
+  font-weight: 500;
+}
+@media screen and (max-width: 600px) {
+  .footer__nav__link__paragraph {
+    font-size: 14px;
+    font-weight: 300;
+  }
+}
+.footer__nav .link-last {
+  margin-bottom: 40px;
+}
+
+.presentation {
+  width: 100%;
+  height: 20%;
+  background-color: rgb(244, 244, 244);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.fonctionnement {
+  width: 100%;
+  height: 20%;
+}
+
+.list-restaurant {
+  width: 100%;
+  height: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgb(244, 244, 244);
+}
+
+.waiting {
+  z-index: -1;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(194, 191, 191, 0.8);
+  position: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  animation: apparition 3s ease-in-out;
+}
+.waiting__load {
+  width: 50%;
+  height: 50%;
+  background-color: #ececec;
+  border: 7px solid #15DEA5;
+  border-radius: 80px/80px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: auto;
+  margin-top: 15%;
+}
+@media screen and (max-width: 600px) {
+  .waiting__load {
+    width: 90%;
+    height: 50%;
+  }
+}
+.waiting__load__bulle {
+  width: 8%;
+  height: 15%;
+  border-radius: 50%;
+  animation: bulles 1200ms 80ms backwards reverse;
+}
+@media screen and (max-width: 600px) {
+  .waiting__load__bulle {
+    width: 10%;
+    height: 12%;
+  }
+}
+.waiting__load__bulle:hover {
+  animation-play-state: paused;
+}
+.waiting__load__bulle--1 {
+  animation-delay: 200ms;
+}
+.waiting__load__bulle--2 {
+  animation-delay: 400ms;
+}
+.waiting__load__bulle--3 {
+  animation-delay: 600ms;
+}
+.waiting__load__bulle--4 {
+  animation-delay: 800ms;
+}
+.waiting__load__bulle--5 {
+  animation-delay: 1000ms;
+}
+.waiting__load__bulle--1 {
+  background: #45b0c3;
+  border: 4px dashed #45b0c3;
+}
+.waiting__load__bulle--2 {
+  background: #FF79DA;
+  border: 4px dashed #FF79DA;
+}
+.waiting__load__bulle--3 {
+  background: #99E2D0;
+  border: 4px dashed #99E2D0;
+}
+.waiting__load__bulle--4 {
+  background: #9356DC;
+  border: 4px dashed #9356DC;
+}
+.waiting__load__bulle--5 {
+  background: #0E397F;
+  border: 4px dashed #0E397F;
+}
+
+.presentation__location {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: rgb(230, 227, 227);
+}
+.presentation__location__icon {
+  margin: 15px 5px 15px 5px;
+  color: rgb(72, 70, 70);
+}
+.presentation__location__paragraph {
+  margin: 15px 5px 15px 5px;
+  color: rgb(72, 70, 70);
+}
+@media screen and (max-width: 600px) {
+  .presentation__location__paragraph {
+    text-align: center;
+  }
+}
+.presentation__accroche {
+  width: 100%;
+  height: 15%;
+  padding: 10px;
+  margin: 30px 0px 0px 0px;
+  font-size: 26px;
+  font-weight: 600;
+  text-align: center;
+}
+@media screen and (max-width: 600px) {
+  .presentation__accroche {
+    font-size: 20px;
+    margin: 30px 40px 5px 40px;
+    padding: 0px 40px 0px 40px;
+  }
+}
+.presentation__description {
+  width: 100%;
+  height: 15%;
+  padding: 10px;
+  margin: 0px 0px 0px 0px;
+  font-size: 20px;
+  font-weight: 300;
+  color: rgb(72, 70, 70);
+  text-align: center;
+}
+@media screen and (max-width: 600px) {
+  .presentation__description {
+    font-size: 16px;
+    margin: 20px 40px 5px 40px;
+    padding: 0px 40px 0px 40px;
+  }
+}
+.presentation__btn {
+  background: linear-gradient(to bottom right, #FF79DA, #9356DC);
+  width: 230px;
+  height: 50px;
+  border-radius: 30px/30px;
+  text-align: center;
+  box-shadow: 0px 3px 3px rgb(194, 191, 191);
+  color: white;
+  line-height: 28px;
+  display: block;
+  padding: 10px;
+  margin-bottom: 40px;
+  margin-top: 20px;
+  opacity: 1;
+  transition: all 550ms ease-in-out;
+}
+@media screen and (max-width: 600px) {
+  .presentation__btn {
+    font-size: 14px;
+  }
+}
+.presentation__btn:hover {
+  opacity: 0.9;
+  box-shadow: 0px 4px 4px grey;
+}
+
+.fonctionnement__title {
+  width: 50%;
+  height: 20%;
+  text-align: center;
+  padding: 10px;
+  font-size: 26px;
+  font-weight: 600;
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+@media screen and (max-width: 600px) {
+  .fonctionnement__title {
+    font-size: 20px;
+    margin: 30px 20px 15px 10px;
+    text-align: start;
+  }
+}
+.fonctionnement__btn {
+  width: 100%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.fonctionnement__btn__link {
+  display: block;
+  width: 26%;
+  height: 30%;
+  z-index: 0;
+  background-color: rgb(244, 244, 244);
+  border-radius: 20px/20px;
+  text-align: center;
+  box-shadow: 0px 3px 3px rgb(194, 191, 191);
+  color: black;
+  line-height: 80px;
+  margin-bottom: 20px;
+  position: relative;
+}
+@media screen and (max-width: 600px) {
+  .fonctionnement__btn__link {
+    width: 90%;
+    height: 21%;
+    font-size: 14px;
+    font-weight: 500;
+  }
+}
+.fonctionnement__btn__link__number {
+  position: absolute;
+  top: 42%;
+  left: -8px;
+  font-size: 11px;
+  border-radius: 50%;
+  width: 21px;
+  height: 21px;
+  background-color: #9356DC;
+  color: white;
+  line-height: 20px;
+}
+.fonctionnement__btn__link__first {
+  position: absolute;
+  top: 41%;
+  left: 21%;
+  margin-right: 10%;
+  font-size: 16px;
+}
+.fonctionnement__btn__link__second {
+  position: absolute;
+  top: 41%;
+  left: 21%;
+  margin-right: 10%;
+  font-size: 16px;
+  color: #9356DC;
+  opacity: 0;
+}
+.fonctionnement__btn__link:hover::after {
+  opacity: 1;
+}
+.fonctionnement__btn__link:hover .fonctionnement__btn__link__second {
+  opacity: 1;
+}
+.fonctionnement__btn__link::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  z-index: -1;
+  box-shadow: 0px 4px 4px grey;
+  border-radius: 20px/20px;
+  background-color: #f2eafb;
+  transition: opacity 700ms;
+}
+
+.list-restaurant__title {
+  width: 90%;
+  height: 20%;
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  text-align: center;
+  padding: 10px;
+  font-size: 26px;
+  font-weight: 600;
+}
+@media screen and (max-width: 600px) {
+  .list-restaurant__title {
+    font-size: 20px;
+    margin: 30px 20px 15px 10px;
+    text-align: start;
+  }
+}
+
+.restaurant {
+  width: 90%;
+  height: 40%;
+  margin: auto;
+  margin-bottom: 20px;
+  border-radius: 20px/20px;
+  box-shadow: 0px 3px 3px rgb(194, 191, 191);
+  position: relative;
+}
+.restaurant__img {
+  width: 100%;
+  max-height: 200px;
+  border-radius: 20px 20px 0px 0px;
+  object-fit: cover;
+}
+@media screen and (max-width: 600px) {
+  .restaurant__img {
+    max-height: 150px;
+    object-position: 50% 62%;
+  }
+}
+.restaurant__btn {
+  width: 10%;
+  height: 10%;
+  position: absolute;
+  top: 5%;
+  right: 3%;
+  background-color: #99E2D0;
+  color: #278870;
+  text-align: center;
+  line-height: 26px;
+  font-weight: 500;
+}
+@media screen and (max-width: 600px) {
+  .restaurant__btn {
+    width: 21%;
+    height: 12%;
+    font-size: 14px;
+  }
+}
+.restaurant__description {
+  width: 100%;
+  height: 70px;
+  background-color: white;
+  color: black;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border-radius: 0px 0px 20px 20px;
+}
+.restaurant__description__title {
+  font-size: 20px;
+  font-weight: 600;
+  height: 50%;
+  margin: 5px 20px 0px 20px;
+}
+@media screen and (max-width: 600px) {
+  .restaurant__description__title {
+    font-size: 16px;
+    line-height: 35px;
+  }
+}
+.restaurant__description__paragraph {
+  font-size: 20px;
+  font-weight: 300;
+  height: 50%;
+  margin: 0px 20px 0px 20px;
+}
+@media screen and (max-width: 600px) {
+  .restaurant__description__paragraph {
+    font-size: 14px;
+    line-height: 10px;
+  }
+}
+.restaurant__description__icon {
+  color: grey;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 150%;
+}
+.restaurant__description__icon:hover + .restaurant__description__icon__iconRempli {
+  transform: scale(1);
+  transform-origin: 0% 0%;
+}
+.restaurant__description__icon__iconRempli {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 150%;
+  transform: scale(0);
+  background: linear-gradient(to bottom right, #FF79DA, #9356DC);
+  transition: transform 1000ms;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
+
+@media screen and (max-width: 600px) {
+  .last-restaurant {
+    margin-bottom: 50px;
+  }
+}
+
+.body-page {
+  background-color: #ececec;
+}
+
+.headerpage {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(244, 244, 244);
+  position: relative;
+}
+.headerpage__logo {
+  display: block;
+  margin: 20px auto;
+  height: 100%;
+  width: 40%;
+}
+.headerpage__iconlink {
+  position: absolute;
+  top: 21%;
+  left: 10px;
+  font-weight: 900;
+  font-size: 26px;
+}
+@media screen and (max-width: 600px) {
+  .headerpage__iconlink {
+    font-size: 20px;
+    top: 12%;
+  }
+}
+
+.menu {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: #ececec;
+}
+.menu__img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+}
+@media screen and (max-width: 600px) {
+  .menu__img {
+    width: 100%;
+    height: 200px;
+  }
+}
+.menu__title {
+  width: 100%;
+  height: 7%;
+  margin: auto;
+  padding: 30px 5px 0px 10px;
+  border-radius: 40px 40px 0px 0px;
+  position: absolute;
+  top: 400px;
+  background-color: #ececec;
+  text-align: center;
+}
+@media screen and (max-width: 600px) {
+  .menu__title {
+    width: 100%;
+    height: 5%;
+    text-align: center;
+    font-size: 26px;
+    top: 160px;
+    text-align: start;
+    border-radius: 30px 30px 0px 0px;
+  }
+}
+.menu__title i {
+  margin-left: 30px;
+}
+@media screen and (max-width: 600px) {
+  .menu__title i {
+    margin-left: 50px;
+    font-size: 20px;
+    font-weight: 300;
+    color: rgb(54, 52, 52);
+  }
+}
+.menu__entrees {
+  width: 50%;
+  margin: auto;
+  height: 20%;
+  animation: menu-display 1500ms both;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+@media screen and (max-width: 600px) {
+  .menu__entrees {
+    width: 100%;
+    height: 100%;
+  }
+}
+.menu__entrees__title {
+  width: 100%;
+  position: relative;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 300;
+  margin-left: 10px;
+  margin-top: 15px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+@media screen and (max-width: 600px) {
+  .menu__entrees__title {
+    margin-top: 40px;
+  }
+}
+.menu__entrees__title::after {
+  content: "";
+  width: 50px;
+  position: absolute;
+  bottom: -10px;
+  left: 0px;
+  border: 2px solid #99E2D0;
+}
+.menu__entrees__choix {
+  display: block;
+  width: 90%;
+  height: 80px;
+  margin-bottom: 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #f7f7f7;
+  border-radius: 20px/20px;
+  box-shadow: 0px 3px 3px rgb(194, 191, 191);
+  color: black;
+  line-height: 30px;
+  margin-left: 10px;
+  animation: menu-display 1700ms both, choix-display 1700ms both;
+}
+@media screen and (max-width: 600px) {
+  .menu__entrees__choix {
+    width: 97%;
+    height: 100%;
+  }
+}
+.menu__entrees__choix--1 {
+  animation-delay: 200ms;
+}
+.menu__entrees__choix--2 {
+  animation-delay: 400ms;
+}
+.menu__entrees__choix--3 {
+  animation-delay: 600ms;
+}
+.menu__entrees__choix--4 {
+  animation-delay: 800ms;
+}
+.menu__entrees__choix:hover .menu__entrees__choix__btn {
+  transform: scale(100%);
+}
+.menu__entrees__choix:hover .menu__entrees__choix__btn .fa-solid {
+  transform: rotate(1turn);
+}
+.menu__entrees__choix:hover .menu__entrees__choix__prix {
+  transform: translateX(-430%);
+}
+@media screen and (max-width: 1000px) {
+  .menu__entrees__choix:hover .menu__entrees__choix__prix {
+    transform: translateX(-300%);
+  }
+}
+@media screen and (max-width: 600px) {
+  .menu__entrees__choix:hover .menu__entrees__choix__prix {
+    transform: translateX(-360%);
+  }
+}
+@media screen and (max-width: 375px) {
+  .menu__entrees__choix:hover .menu__entrees__choix__prix {
+    transform: translateX(-250%);
+  }
+}
+.menu__entrees__choix:hover .menu__entrees__choix__description {
+  width: 70%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@media screen and (max-width: 1000px) {
+  .menu__entrees__choix:hover .menu__entrees__choix__description {
+    width: 60%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .menu__entrees__choix:hover .menu__entrees__choix__description {
+    width: 50%;
+  }
+}
+.menu__entrees__choix:hover .menu__entrees__choix__nom {
+  width: 70%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@media screen and (max-width: 600px) {
+  .menu__entrees__choix:hover .menu__entrees__choix__nom {
+    width: 60%;
+  }
+}
+.menu__entrees__choix__nom {
+  width: 70%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0px 0px 0px 0px;
+  margin-left: 10px;
+  font-size: 16px;
+  font-weight: 500;
+}
+.menu__entrees__choix__description {
+  width: 70%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0px 0px 0px 0px;
+  margin-left: 10px;
+  font-size: 14px;
+  font-weight: 300;
+}
+.menu__entrees__choix__prix {
+  margin: 0px 0px 0px 0px;
+  margin-left: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  position: absolute;
+  bottom: 10px;
+  right: 20px;
+  transition: transform 500ms ease-out;
+}
+.menu__entrees__choix__btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 19%;
+  height: 100%;
+  border-radius: 0px 20px 20px 0px;
+  background-color: #99E2D0;
+  transform-origin: right;
+  transform: scale(0%, 100%);
+  transition: transform 500ms;
+}
+.menu__entrees__choix__btn > .fa-solid {
+  display: inline block;
+  margin: auto;
+  filter: invert(100%);
+  border-radius: 50%;
+  transform: rotate(0turn);
+  transition: transform 500ms ease-in-out;
+  font-size: 150%;
+}
+@media screen and (max-width: 600px) {
+  .menu__entrees__choix__btn > .fa-solid {
+    font-size: 100%;
+  }
+}
+.menu__plats {
+  width: 50%;
+  margin: auto;
+  height: 20%;
+  animation: menu-display 1500ms both;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+@media screen and (max-width: 600px) {
+  .menu__plats {
+    width: 100%;
+    height: 100%;
+  }
+}
+.menu__plats__title {
+  width: 100%;
+  position: relative;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 300;
+  margin-left: 10px;
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+.menu__plats__title::after {
+  content: "";
+  width: 50px;
+  position: absolute;
+  bottom: -10px;
+  left: 0px;
+  border: 2px solid #99E2D0;
+}
+.menu__plats__choix {
+  display: block;
+  width: 90%;
+  height: 80px;
+  margin-bottom: 20px;
+  position: relative;
+  animation: menu-display 1700ms both, choix-display 1700ms both;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #f7f7f7;
+  border-radius: 20px/20px;
+  box-shadow: 0px 3px 3px rgb(194, 191, 191);
+  color: black;
+  line-height: 30px;
+  margin-left: 10px;
+}
+.menu__plats__choix--1 {
+  animation-delay: 200ms;
+}
+.menu__plats__choix--2 {
+  animation-delay: 400ms;
+}
+.menu__plats__choix--3 {
+  animation-delay: 600ms;
+}
+.menu__plats__choix--4 {
+  animation-delay: 800ms;
+}
+.menu__plats__choix:hover .menu__plats__choix__btn {
+  transform: scale(100%);
+}
+.menu__plats__choix:hover .menu__plats__choix__btn .fa-solid {
+  transform: rotate(1turn);
+}
+.menu__plats__choix:hover .menu__plats__choix__prix {
+  transform: translateX(-430%);
+}
+@media screen and (max-width: 600px) {
+  .menu__plats__choix:hover .menu__plats__choix__prix {
+    transform: translateX(-250%);
+  }
+}
+.menu__plats__choix:hover .menu__plats__choix__description {
+  width: 70%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@media screen and (max-width: 600px) {
+  .menu__plats__choix:hover .menu__plats__choix__description {
+    width: 60%;
+  }
+}
+.menu__plats__choix:hover .menu__plats__choix__nom {
+  width: 70%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@media screen and (max-width: 600px) {
+  .menu__plats__choix:hover .menu__plats__choix__nom {
+    width: 60%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .menu__plats__choix {
+    width: 97%;
+    height: 100%;
+  }
+}
+.menu__plats__choix__nom {
+  margin: 0px 0px 0px 0px;
+  margin-left: 10px;
+  font-size: 16px;
+  font-weight: 500;
+}
+.menu__plats__choix__description {
+  margin: 0px 0px 0px 0px;
+  margin-left: 10px;
+  font-size: 14px;
+  font-weight: 300;
+}
+.menu__plats__choix__prix {
+  margin: 0px 0px 0px 0px;
+  margin-left: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  position: absolute;
+  bottom: 10px;
+  right: 20px;
+  transition: transform 500ms ease-out;
+}
+.menu__plats__choix__btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 19%;
+  height: 100%;
+  border-radius: 0px 20px 20px 0px;
+  background-color: #99E2D0;
+  transform-origin: right;
+  transform: scale(0%, 100%);
+  transition: transform 500ms;
+}
+.menu__plats__choix__btn > .fa-solid {
+  display: inline block;
+  margin: auto;
+  filter: invert(100%);
+  border-radius: 50%;
+  transform: rotate(0turn);
+  transition: transform 500ms ease-in-out;
+  font-size: 150%;
+}
+@media screen and (max-width: 600px) {
+  .menu__plats__choix__btn > .fa-solid {
+    font-size: 100%;
+  }
+}
+.menu__desserts {
+  width: 50%;
+  margin: auto;
+  height: 20%;
+  animation: menu-display 1500ms both;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+@media screen and (max-width: 600px) {
+  .menu__desserts {
+    width: 100%;
+    height: 100%;
+  }
+}
+.menu__desserts__title {
+  width: 100%;
+  position: relative;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 300;
+  margin-left: 10px;
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+.menu__desserts__title::after {
+  content: "";
+  width: 50px;
+  position: absolute;
+  bottom: -10px;
+  left: 0px;
+  border: 2px solid #99E2D0;
+}
+.menu__desserts__choix {
+  display: block;
+  width: 90%;
+  height: 80px;
+  margin-bottom: 20px;
+  position: relative;
+  animation: menu-display 1700ms both, choix-display 1700ms both;
+  background-color: #f7f7f7;
+  border-radius: 20px/20px;
+  box-shadow: 0px 3px 3px rgb(194, 191, 191);
+  color: black;
+  line-height: 30px;
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.menu__desserts__choix--1 {
+  animation-delay: 200ms;
+}
+.menu__desserts__choix--2 {
+  animation-delay: 400ms;
+}
+.menu__desserts__choix--3 {
+  animation-delay: 600ms;
+}
+.menu__desserts__choix--4 {
+  animation-delay: 800ms;
+}
+.menu__desserts__choix:hover .menu__desserts__choix__btn {
+  transform: scale(100%);
+}
+.menu__desserts__choix:hover .menu__desserts__choix__btn .fa-solid {
+  transform: rotate(1turn);
+}
+.menu__desserts__choix:hover .menu__desserts__choix__prix {
+  transform: translateX(-430%);
+}
+@media screen and (max-width: 600px) {
+  .menu__desserts__choix:hover .menu__desserts__choix__prix {
+    transform: translateX(-250%);
+  }
+}
+.menu__desserts__choix:hover .menu__desserts__choix__description {
+  width: 70%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@media screen and (max-width: 600px) {
+  .menu__desserts__choix:hover .menu__desserts__choix__description {
+    width: 60%;
+  }
+}
+.menu__desserts__choix:hover .menu__desserts__choix__nom {
+  width: 70%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@media screen and (max-width: 600px) {
+  .menu__desserts__choix:hover .menu__desserts__choix__nom {
+    width: 60%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .menu__desserts__choix {
+    width: 97%;
+    height: 100%;
+  }
+}
+.menu__desserts__choix__nom {
+  margin: 0px 0px 0px 0px;
+  margin-left: 10px;
+  font-size: 16px;
+  font-weight: 500;
+}
+.menu__desserts__choix__description {
+  margin: 0px 0px 0px 0px;
+  margin-left: 10px;
+  font-size: 14px;
+  font-weight: 300;
+}
+.menu__desserts__choix__prix {
+  margin: 0px 0px 0px 0px;
+  margin-left: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  position: absolute;
+  bottom: 10px;
+  right: 20px;
+  transition: transform 500ms ease-out;
+}
+.menu__desserts__choix__btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 19%;
+  height: 100%;
+  border-radius: 0px 20px 20px 0px;
+  background-color: #99E2D0;
+  transform-origin: right;
+  transform: scale(0%, 100%);
+  transition: transform 500ms;
+}
+.menu__desserts__choix__btn > .fa-solid {
+  display: inline block;
+  margin: auto;
+  filter: invert(100%);
+  border-radius: 50%;
+  transform: rotate(0turn);
+  transition: transform 500ms ease-in-out;
+  font-size: 150%;
+}
+@media screen and (max-width: 600px) {
+  .menu__desserts__choix__btn > .fa-solid {
+    font-size: 100%;
+  }
+}
+.menu__btn {
+  background: linear-gradient(to bottom right, #FF79DA, #9356DC);
+  width: 230px;
+  height: 50px;
+  border-radius: 30px/30px;
+  text-align: center;
+  box-shadow: 0px 3px 3px rgb(194, 191, 191);
+  color: white;
+  line-height: 28px;
+  display: block;
+  padding: 10px;
+  margin-bottom: 40px;
+  margin-top: 20px;
+  margin-left: 39%;
+  margin-bottom: 30px;
+  transition: all 550ms ease-in-out;
+}
+@media screen and (max-width: 600px) {
+  .menu__btn {
+    margin: auto;
+    margin-bottom: 30px;
+  }
+}
+.menu__btn:hover {
+  opacity: 0.9;
+  box-shadow: 0px 4px 4px grey;
+}
+.menu__btn__rempli {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 200ms;
+}
+
+/*# sourceMappingURL=style.css.map */
